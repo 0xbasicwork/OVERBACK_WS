@@ -2,11 +2,15 @@
     "folders": [
         {
             "name": "Backend",
-            "path": "../OVER_BACK_Index"
+            "path": "backend"
         },
         {
             "name": "Frontend",
-            "path": "../back_web"
+            "path": "frontend"
+        },
+        {
+            "name": "Root",
+            "path": "."
         }
     ],
     "settings": {
