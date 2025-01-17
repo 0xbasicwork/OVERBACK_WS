@@ -12,7 +12,7 @@ const nextConfig = {
       {
         protocol: 'http',
         hostname: '45.76.10.9',
-        port: '3000',
+        port: '3001',
         pathname: '/**',
       },
       {
@@ -30,6 +30,11 @@ const nextConfig = {
         destination: process.env.NEXT_PUBLIC_API_URL + '/api/:path*'
       }
     ]
+  },
+  output: 'standalone',
+  experimental: {
+    workerThreads: false,
+    cpus: 1
   }
 }
 
