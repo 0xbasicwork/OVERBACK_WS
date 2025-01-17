@@ -1,0 +1,139 @@
+{
+  "history": [
+    {
+      "timestamp": "2025-01-10T03:56:47.682Z",
+      "score": 65,
+      "label": "We're back.",
+      "components": {
+        "market": 66.82000000000001,
+        "sentiment": 50.61,
+        "onChain": 72.2
+      },
+      "details": {
+        "marketMetrics": {
+          "priceChange": 0.655,
+          "volumeChange": 0.726,
+          "marketCapChange": 0.628
+        },
+        "sentimentMetrics": {
+          "sentimentScore": 0.54,
+          "engagementScore": 0.367,
+          "volumeScore": 0.6
+        },
+        "onChainMetrics": {
+          "activityScore": 0.755,
+          "successRate": 0.85,
+          "volumeScore": 0.55
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-10T04:02:18.540Z",
+      "score": 60,
+      "label": "We vibing.",
+      "components": {
+        "market": 61.46666666666667,
+        "sentiment": 56.02,
+        "onChain": 59.62500000000001
+      },
+      "details": {
+        "marketMetrics": {
+          "priceChange": 0.5916666666666667,
+          "volumeChange": 0.68,
+          "marketCapChange": 0.58
+        },
+        "sentimentMetrics": {
+          "sentimentScore": 0.55,
+          "engagementScore": 0.534,
+          "volumeScore": 0.6
+        },
+        "onChainMetrics": {
+          "activityScore": 0.69375,
+          "successRate": 0.625,
+          "volumeScore": 0.4375
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-10T04:03:12.800Z",
+      "score": 55,
+      "label": "We vibing.",
+      "components": {
+        "market": 59.529999999999994,
+        "sentiment": 54.50000000000001,
+        "onChain": 50.66666666666667
+      },
+      "details": {
+        "marketMetrics": {
+          "priceChange": 0.58,
+          "volumeChange": 0.655,
+          "marketCapChange": 0.556
+        },
+        "sentimentMetrics": {
+          "sentimentScore": 0.5499999999999999,
+          "engagementScore": 0.5,
+          "volumeScore": 0.5833333333333334
+        },
+        "onChainMetrics": {
+          "activityScore": 0.5916666666666667,
+          "successRate": 0.4,
+          "volumeScore": 0.5
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-10T04:06:27.393Z",
+      "score": 53,
+      "label": "We vibing.",
+      "components": {
+        "market": 59.529999999999994,
+        "sentiment": 54.50000000000001,
+        "onChain": 45.665666666666674
+      },
+      "details": {
+        "marketMetrics": {
+          "priceChange": 0.58,
+          "volumeChange": 0.655,
+          "marketCapChange": 0.556
+        },
+        "sentimentMetrics": {
+          "sentimentScore": 0.5499999999999999,
+          "engagementScore": 0.5,
+          "volumeScore": 0.5833333333333334
+        },
+        "onChainMetrics": {
+          "activityScore": 0.5916666666666667,
+          "successRate": 0.4,
+          "volumeScore": 0.3333
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-10T04:46:48.482Z",
+      "score": 53,
+      "label": "We vibing.",
+      "components": {
+        "market": 59.529999999999994,
+        "sentiment": 54.50000000000001,
+        "onChain": 45.665666666666674
+      },
+      "details": {
+        "marketMetrics": {
+          "priceChange": 0.58,
+          "volumeChange": 0.655,
+          "marketCapChange": 0.556
+        },
+        "sentimentMetrics": {
+          "sentimentScore": 0.5499999999999999,
+          "engagementScore": 0.5,
+          "volumeScore": 0.5833333333333334
+        },
+        "onChainMetrics": {
+          "activityScore": 0.5916666666666667,
+          "successRate": 0.4,
+          "volumeScore": 0.3333
+        }
+      }
+    }
+  ]
+}

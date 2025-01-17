@@ -1,0 +1,59 @@
+{
+  "current": 15.618920722061421,
+  "lastUpdated": "16/01/2025 06:10:49 UTC",
+  "components": {
+    "market": {
+      "volume": 5.082302883926068,
+      "price": 3.9809194481561674,
+      "market_cap": 4.319128098101195,
+      "spread": 2.236570291877992,
+      "total": 15.618920722061421
+    },
+    "sentiment": {
+      "total": 0
+    },
+    "onchain": {
+      "total": 0
+    }
+  },
+  "history": [
+    {
+      "timestamp": "16/01/2025 06:02:38 UTC",
+      "score": 15.078281261426458,
+      "components": {
+        "market": {
+          "volume": 5.015954217434981,
+          "price": 3.682829615192736,
+          "market_cap": 4.157545014652161,
+          "spread": 2.22195241414658,
+          "total": 15.078281261426458
+        },
+        "sentiment": {
+          "total": 0
+        },
+        "onchain": {
+          "total": 0
+        }
+      }
+    },
+    {
+      "timestamp": "16/01/2025 06:10:49 UTC",
+      "score": 15.618920722061421,
+      "components": {
+        "market": {
+          "volume": 5.082302883926068,
+          "price": 3.9809194481561674,
+          "market_cap": 4.319128098101195,
+          "spread": 2.236570291877992,
+          "total": 15.618920722061421
+        },
+        "sentiment": {
+          "total": 0
+        },
+        "onchain": {
+          "total": 0
+        }
+      }
+    }
+  ]
+}

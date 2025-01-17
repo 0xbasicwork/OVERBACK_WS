@@ -53,13 +53,35 @@ interface TooltipContext {
 }
 
 function parseDate(dateStr: string) {
-  // Input format: "DD/MM/YYYY, HH:mm:ss UTC"
-  const [datePart, timePart] = dateStr.split(', ');
-  const [day, month, year] = datePart.split('/');
-  const [time] = timePart.split(' '); // Remove UTC
-  
-  // Create date in format: "YYYY-MM-DD HH:mm:ss"
-  return new Date(`${year}-${month}-${day} ${time}`);
+  if (!dateStr) {
+    console.warn('Invalid date string:', dateStr);
+    return new Date();
+  }
+
+  try {
+    // First try direct ISO string parsing
+    if (dateStr.includes('T') || dateStr.includes('Z')) {
+      return new Date(dateStr);
+    }
+
+    // Then try DD/MM/YYYY, HH:mm:ss UTC format
+    if (dateStr.includes(',')) {
+      const [datePart, timePart] = dateStr.split(', ');
+      if (!datePart || !timePart) {
+        console.warn('Invalid date format:', dateStr);
+        return new Date(dateStr);
+      }
+      const [day, month, year] = datePart.split('/');
+      const [time] = timePart.split(' '); // Remove UTC
+      return new Date(`${year}-${month}-${day} ${time}`);
+    }
+
+    // Fallback to direct parsing
+    return new Date(dateStr);
+  } catch (error) {
+    console.error('Error parsing date:', error);
+    return new Date();
+  }
 }
 
 function getColorForScore(score: number): string {

@@ -1,0 +1,52 @@
+{
+  "timestamp": "16/01/2025 06:10:49 UTC",
+  "metrics": {
+    "volume": {
+      "total": 2474191564,
+      "average": 274910173.7777778,
+      "ratio": 0.2741858284546749,
+      "score": 25.48056308583601
+    },
+    "price": {
+      "change_24h": 10.07768777777778,
+      "change_7d": 0,
+      "volatility": 0.020570257567092548,
+      "score": 39.80919448156167
+    },
+    "market_cap": {
+      "total": 10935234421,
+      "change": 9.429275555555556,
+      "score": 43.19128098101194
+    },
+    "spreads": {
+      "bonk": 9.779179810725559,
+      "pudgy-penguins": 16.627670243972524,
+      "dogwifcoin": 16.27906976744186,
+      "ai16z": 23.99999999999999,
+      "fartcoin": 29.983709677419363,
+      "peanut-the-squirrel": 17.535961193171726,
+      "gigachad-2": 12.332564250464657,
+      "popcat": 15.778999455980472,
+      "moo-deng": 14.192368408952738
+    },
+    "rankings": {
+      "bonk": 68,
+      "pudgy-penguins": 32,
+      "dogwifcoin": 33,
+      "ai16z": 34,
+      "fartcoin": 78,
+      "peanut-the-squirrel": 28,
+      "gigachad-2": null,
+      "popcat": null,
+      "moo-deng": null
+    },
+    "tokens_in_top_100": 6
+  },
+  "scores": {
+    "volume": 5.082302883926068,
+    "price": 3.9809194481561674,
+    "market_cap": 4.319128098101195,
+    "spread": 2.236570291877992,
+    "total": 15.618920722061421
+  }
+}

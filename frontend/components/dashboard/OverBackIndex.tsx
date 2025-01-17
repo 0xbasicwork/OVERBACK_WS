@@ -325,7 +325,7 @@ export function OverBackIndex() {
             <div className='space-y-2'>
               <div className='flex justify-between items-center'>
                 <span className='text-gray-600 text-sm md:text-base cursor-help font-bold'
-                  title={`Market Score (40% weight)...`}>
+                  title={`Market Score (40% weight):\n• Price action (15%)\n• Trading volume (15%)\n• Market indicators (10%)`}>
                   Market
                 </span>
                 <span className='font-bold text-sm md:text-base text-emerald-600'>
@@ -345,7 +345,7 @@ export function OverBackIndex() {
             <div className='space-y-2'>
               <div className='flex justify-between items-center'>
                 <span className='text-gray-600 text-sm md:text-base cursor-help font-bold'
-                  title={`Social Score (30% weight)...`}>
+                  title={`Social Score (30% weight):\n• Social media sentiment (10%)\n• Community mentions (10%)\n• Engagement metrics (10%)`}>
                   Social
                 </span>
                 <span className='font-bold text-sm md:text-base text-amber-600'>
@@ -365,7 +365,7 @@ export function OverBackIndex() {
             <div className='space-y-2'>
               <div className='flex justify-between items-center'>
                 <span className='text-gray-600 text-sm md:text-base cursor-help font-bold'
-                  title={`On-Chain Score (30% weight)...`}>
+                  title={`On-Chain Score (30% weight):\n• Network activity (10%)\n• Transaction volume (10%)\n• Blockchain metrics (10%)`}>
                   On-Chain
                 </span>
                 <span className='font-bold text-sm md:text-base text-orange-600'>

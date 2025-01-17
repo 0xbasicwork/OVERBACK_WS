@@ -20,10 +20,10 @@ export async function GET() {
     }
 
     // Use environment variable for API URL
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://45.76.10.9:3000';
-    console.log('Fetching from:', `${API_URL}/api/latest`);
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+    console.log('Fetching from:', `${API_URL}/api/index/latest`);
     
-    const response = await fetch(`${API_URL}/api/latest`, {
+    const response = await fetch(`${API_URL}/api/index/latest`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
