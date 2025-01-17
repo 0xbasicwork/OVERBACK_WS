@@ -5,8 +5,9 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://45.76.10.9:3001';
 
 // Mock data for build time
 const mockData = {
-    status: 'ok',
-    message: 'Mock console status'
+    timestamp: new Date().toISOString(),
+    output: 'Mock console output',
+    type: 'info'
 };
 
 export async function GET() {

@@ -8,7 +8,8 @@ const mockData = {
     history: [
         {
             timestamp: new Date().toISOString(),
-            message: 'Mock console history entry'
+            output: 'Mock console history entry',
+            type: 'info'
         }
     ]
 };
