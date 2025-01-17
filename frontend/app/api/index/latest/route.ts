@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://45.76.10.9:3001';
 
 // Mock data for build time
 const mockData = {
@@ -16,8 +16,8 @@ const mockData = {
 };
 
 export async function GET() {
-    // During build time or when API is not available, return mock data
-    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_API_URL) {
+    // Always return mock data during build time
+    if (process.env.NEXT_PHASE === 'phase-production-build') {
         return NextResponse.json(mockData);
     }
 

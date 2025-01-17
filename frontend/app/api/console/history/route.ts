@@ -1,22 +1,21 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://45.76.10.9:3001';
 
 // Mock data for build time
 const mockData = {
     history: [
         {
-            timestamp: new Date(Date.now() - 3600000).toISOString(),
-            message: 'Build time mock data',
-            type: 'info'
+            timestamp: new Date().toISOString(),
+            message: 'Mock console history entry'
         }
     ]
 };
 
 export async function GET() {
-    // During build time or when API is not available, return mock data
-    if (process.env.NODE_ENV === 'production' && !process.env.NEXT_PUBLIC_API_URL) {
+    // Always return mock data during build time
+    if (process.env.NEXT_PHASE === 'phase-production-build') {
         return NextResponse.json(mockData);
     }
 
@@ -24,7 +23,7 @@ export async function GET() {
         const response = await axios.get(`${API_URL}/api/console/history`);
         return NextResponse.json(response.data);
     } catch (error) {
-        console.error('API error:', error);
+        console.error('Error fetching console history:', error);
         // Return mock data in case of error
         return NextResponse.json(mockData);
     }
