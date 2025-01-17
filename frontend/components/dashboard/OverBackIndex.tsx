@@ -30,7 +30,12 @@ export function OverBackIndex() {
           cache: 'no-store',
           next: { revalidate: 0 }
         });
-        if (!response.ok) throw new Error('Failed to fetch index');
+        
+        if (!response.ok) {
+          const errorData = await response.text();
+          throw new Error(`Failed to fetch index: ${response.status} - ${errorData}`);
+        }
+        
         const data = await response.json();
         
         // Validate data shape
