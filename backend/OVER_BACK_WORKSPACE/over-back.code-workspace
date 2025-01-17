@@ -1,0 +1,28 @@
+{
+    "folders": [
+        {
+            "name": "Backend",
+            "path": "../OVER_BACK_Index"
+        },
+        {
+            "name": "Frontend",
+            "path": "../back_web"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true,
+            "**/node_modules": true
+        },
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/bower_components": true,
+            "**/*.code-search": true
+        }
+    }
+} 

@@ -1,0 +1,20 @@
+{
+  "name": "overback-workspace",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run build && npm run dev",
+    "dev:backend": "cd backend && node server.js",
+    "build": "cd frontend && npm run build",
+    "start:frontend": "cd frontend && npm run start",
+    "start:backend": "cd backend && node server.js",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 

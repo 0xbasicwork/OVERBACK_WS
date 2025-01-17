@@ -1,0 +1,41 @@
+{
+  "name": "over-back-index",
+  "version": "1.0.0",
+  "description": "Over/Back Index for Solana Memecoins",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "scheduler": "node scheduler.js",
+    "test": "node test-calculator.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "@solana/spl-token": "^0.4.9",
+    "@solana/web3.js": "^1.98.0",
+    "axios": "^1.6.0",
+    "better-sqlite3": "^11.8.0",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "natural": "^8.0.1",
+    "node-schedule": "^2.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xbasicwork/OVER_BACK_Index.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/0xbasicwork/OVER_BACK_Index/issues"
+  },
+  "homepage": "https://github.com/0xbasicwork/OVER_BACK_Index#readme"
+}

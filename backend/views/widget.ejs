@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over/Back Index Widget</title>
+    <link rel="stylesheet" href="/css/widget-styles.css">
+</head>
+<body>
+    <div class="widget-container">
+        <% if (error) { %>
+            <div class="error"><%= error %></div>
+        <% } else { %>
+            <div class="meter-container">
+                <div class="meter">
+                    <!-- Meter components -->
+                </div>
+                <% if (typeof score !== 'undefined' && score !== null) { %>
+                    <div class="score"><%= score %></div>
+                    <div class="label" data-score="<%= score %>"><%= label %></div>
+                <% } else { %>
+                    <div class="loading">Loading...</div>
+                <% } %>
+            </div>
+            <% if (lastUpdated) { %>
+                <div class="last-updated">Last updated: <%= lastUpdated %></div>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OVER/BACK Index</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OVER/BACK Index</h1>
+            <div class="update-time">
+                Last updated: <%= lastUpdated ? new Date(lastUpdated).toLocaleString('en-GB', { 
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false,
+                    timeZone: 'UTC'
+                }) + ' UTC' : 'Not available' %>
+            </div>
+        </header>
+
+        <main>
+            <% if (error) { %>
+                <div class="error"><%= error %></div>
+            <% } else { %>
+                <div class="score-container">
+                    <div class="meter">
+                        <div class="meter-arc"></div>
+                        <div class="meter-color-left"></div>
+                        <div class="meter-color-right"></div>
+                        <div class="meter-ticks">
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                            <div class="meter-tick"></div>
+                        </div>
+                        <div class="meter-pointer" style="--score: <%= score %>"></div>
+                        <div class="meter-center"></div>
+                    </div>
+                    <div class="score"><%= score %></div>
+                    <div class="label" data-score="<%= score %>"><%= label %></div>
+                </div>
+
+                <div class="components">
+                    <div class="component">
+                        <div class="component-header">
+                            <span>Market Data</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar">
+                                <div class="fill" data-width="<%= components.market %>"></div>
+                            </div>
+                            <span class="value"><%= Math.round(components.market) %>%</span>
+                        </div>
+                    </div>
+
+                    <div class="component">
+                        <div class="component-header">
+                            <span>Social Sentiment</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar">
+                                <div class="fill" data-width="<%= components.sentiment %>"></div>
+                            </div>
+                            <span class="value"><%= Math.round(components.sentiment) %>%</span>
+                        </div>
+                    </div>
+
+                    <div class="component">
+                        <div class="component-header">
+                            <span>On-chain Activity</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar">
+                                <div class="fill" data-width="<%= components.onChain %>"></div>
+                            </div>
+                            <span class="value"><%= Math.round(components.onChain) %>%</span>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </main>
+
+        <footer>
+            <p>Data updates daily at 12:00 UTC</p>
+        </footer>
+    </div>
+    <script src="/js/main.js"></script>
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('.fill[data-width]').forEach(fill => {
+                const width = parseFloat(fill.getAttribute('data-width'));
+                const validWidth = Math.max(0, Math.min(100, width));
+                fill.style.setProperty('--progress', validWidth + '%');
+                fill.style.setProperty('--scale', validWidth / 100);
+            });
+        }, 500);
+    </script>
+</body>
+</html> 

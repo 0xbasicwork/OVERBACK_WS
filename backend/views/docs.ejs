@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over & Back Index API Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .endpoint {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+        .endpoint h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .path {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        .description {
+            color: #666;
+            margin: 10px 0;
+        }
+        .params {
+            margin: 15px 0;
+        }
+        .param {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #007bff;
+            background: #f1f8ff;
+        }
+        .cache {
+            color: #28a745;
+            font-size: 0.9em;
+        }
+        code {
+            background: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .example {
+            margin: 15px 0;
+        }
+        .example pre {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Over & Back Index API Documentation</h1>
+    
+    <div class="intro">
+        <p>Welcome to the Over & Back Index API documentation. All endpoints support CORS and return JSON responses (unless specified otherwise).</p>
+    </div>
+
+    <% endpoints.forEach(endpoint => { %>
+        <div class="endpoint">
+            <h2><%= endpoint.path %></h2>
+            <div class="path">GET <%= endpoint.path %></div>
+            <div class="description"><%= endpoint.description %></div>
+            <div class="cache">Cache duration: <%= endpoint.cache %></div>
+            
+            <% if (endpoint.params && endpoint.params.length > 0) { %>
+                <div class="params">
+                    <h3>Parameters:</h3>
+                    <% endpoint.params.forEach(param => { %>
+                        <div class="param">
+                            <strong><%= param.name %></strong> (<%= param.type %>)
+                            <% if (param.default) { %>
+                                - Default: <%= param.default %>
+                            <% } %>
+                            <br>
+                            <%= param.description %>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } %>
+
+            <div class="example">
+                <h3>Example Response:</h3>
+                <pre><code>
+<% if (endpoint.path === '/api/latest') { %>
+{
+    "score": 85.5,
+    "components": {
+        "market_cap": 40,
+        "volume": 30,
+        "social": 15.5
+    },
+    "metadata": {
+        "calculation_time": 150
+    },
+    "market_stats": {
+        "total_market_cap": 1000000000,
+        "total_volume": 500000000
+    },
+    "timestamp": "16/01/2024 05:06:36 UTC"
+}
+<% } else if (endpoint.path === '/api/history') { %>
+[
+    {
+        "timestamp": "16/01/2024 05:06:36 UTC",
+        "score": 85.5,
+        "components": {
+            "market_cap": 40,
+            "volume": 30,
+            "social": 15.5
+        }
+    },
+    // ... more entries
+]
+<% } else if (endpoint.path === '/api/market') { %>
+[
+    {
+        "symbol": "BONK",
+        "coingecko_id": "bonk",
+        "market_cap": 1000000000,
+        "volume": 500000000,
+        "price": 0.00001234,
+        "price_change_24h": 5.67,
+        "market_cap_rank": 1,
+        "timestamp": "16/01/2024 05:06:36 UTC"
+    },
+    // ... more tokens
+]
+<% } else if (endpoint.path === '/api/tokens') { %>
+[
+    {
+        "id": "bonk",
+        "symbol": "BONK",
+        "contract_address": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+        "coingecko_id": "bonk",
+        "created_at": "2024-01-16T05:06:36Z",
+        "last_updated": "2024-01-16T05:06:36Z"
+    },
+    // ... more tokens
+]
+<% } else if (endpoint.path === '/api/tokens/:id') { %>
+{
+    "id": "bonk",
+    "symbol": "BONK",
+    "contract_address": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "coingecko_id": "bonk",
+    "created_at": "2024-01-16T05:06:36Z",
+    "last_updated": "2024-01-16T05:06:36Z",
+    "market_data": {
+        "market_cap": 1000000000,
+        "volume": 500000000,
+        "price": 0.00001234,
+        "price_change_24h": 5.67,
+        "market_cap_rank": 1,
+        "timestamp": "16/01/2024 05:06:36 UTC"
+    }
+}
+<% } else if (endpoint.path === '/api/rankings') { %>
+[
+    {
+        "symbol": "BONK",
+        "coingecko_id": "bonk",
+        "rank": 1,
+        "timestamp": "16/01/2024 05:06:36 UTC"
+    },
+    // ... more rankings
+]
+<% } %>
+                </code></pre>
+            </div>
+        </div>
+    <% }) %>
+
+    <footer>
+        <p>For support or questions, please visit <a href="https://sobackitsover.xyz">sobackitsover.xyz</a></p>
+    </footer>
+</body>
+</html> 
