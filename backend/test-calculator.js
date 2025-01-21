@@ -10,7 +10,7 @@ const sampleMarketData = {
 // Sample Twitter data structure
 const sampleTwitterData = {
     overall_metrics: {
-        sentiment_score: 0.15,
+        social_score: 0.15,
         engagement_rate: 0.02,
         tweet_volume_change: 10
     }
@@ -45,7 +45,7 @@ async function testCalculator() {
         console.log('\nComponent Scores:');
         console.log('----------------');
         console.log(`Market Score: ${result.components.market.toFixed(2)}`);
-        console.log(`Sentiment Score: ${result.components.sentiment.toFixed(2)}`);
+        console.log(`Sentiment Score: ${result.components.social.toFixed(2)}`);
         console.log(`On-Chain Score: ${result.components.onChain.toFixed(2)}`);
     } catch (error) {
         console.error('Test failed:', error);

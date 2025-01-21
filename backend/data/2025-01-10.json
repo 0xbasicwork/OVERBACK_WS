@@ -3,7 +3,7 @@
   "label": "We're back.",
   "components": {
     "market": 65.73899888888889,
-    "sentiment": 54.50000000000001,
+    "social": 54.50000000000001,
     "onChain": 87.67
   },
   "details": {
@@ -12,8 +12,8 @@
       "volumeChange": 1,
       "marketCapChange": 0.5062088888888889
     },
-    "sentimentMetrics": {
-      "sentimentScore": 0.5499999999999999,
+    "socialMetrics": {
+      "socialScore": 0.5499999999999999,
       "engagementScore": 0.5,
       "volumeScore": 0.5833333333333334
     },

@@ -48,9 +48,9 @@ router.get('/console', async (req, res) => {
         output += `Score: ${latest.score.toFixed(2)}\n`;
         output += `Last Updated: ${formatDate(new Date(latest.timestamp))}\n`;
         output += '\nComponents:\n';
-        output += `  Market:    ${(components.market_cap || 0).toFixed(2)}%\n`;
-        output += `  Sentiment: ${(components.social || 0).toFixed(2)}%\n`;
-        output += `  On-Chain:  ${(components.volume || 0).toFixed(2)}%\n`;
+        output += `  Market:    ${(components.market || 0).toFixed(2)}%\n`;
+        output += `  Social:    ${(components.social || 0).toFixed(2)}%\n`;
+        output += `  On-Chain:  ${(components.onChain || 0).toFixed(2)}%\n`;
 
         res.type('text/plain').send(output);
     } catch (error) {
@@ -82,9 +82,9 @@ router.get('/console/history', async (req, res) => {
             output += `Date: ${formatDate(new Date(entry.timestamp))}\n`;
             output += `Total Score: ${entry.score.toFixed(2)}\n`;
             output += 'Components:\n';
-            output += `  Market:    ${(components.market_cap || 0).toFixed(2)}%\n`;
-            output += `  Sentiment: ${(components.social || 0).toFixed(2)}%\n`;
-            output += `  On-Chain:  ${(components.volume || 0).toFixed(2)}%\n`;
+            output += `  Market:    ${(components.market || 0).toFixed(2)}%\n`;
+            output += `  Social:    ${(components.social || 0).toFixed(2)}%\n`;
+            output += `  On-Chain:  ${(components.onChain || 0).toFixed(2)}%\n`;
             output += '-------------------\n';
         });
 

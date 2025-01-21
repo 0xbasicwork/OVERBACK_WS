@@ -1,6 +1,6 @@
 # OVER/BACK Index
 
-A fear & greed style index for Solana memecoins, analyzing on-chain data, social sentiment, and market metrics.
+A fear & greed style index for Solana memecoins, analyzing on-chain data, social social, and market metrics.
 
 ## Scale
 
@@ -16,7 +16,7 @@ A fear & greed style index for Solana memecoins, analyzing on-chain data, social
 ## Components
 
 - Market Data (38%): Price action, volume, and market cap changes
-- Social Sentiment (30%): Twitter engagement and sentiment analysis
+- Social Sentiment (30%): Twitter engagement and social analysis
 - On-chain Activity (32%): Transaction volume, wallet activity, and success rates
 
 ## Setup

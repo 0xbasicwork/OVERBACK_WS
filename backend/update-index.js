@@ -1,6 +1,6 @@
 const OverBackCalculator = require('./over-back-calculator');
 const CoinGecko = require('./coingecko');
-const MarketDatabase = require('./database');
+const DataStorage = require('./data-storage');
 
 async function manualUpdate(options = {}) {
     try {
@@ -12,10 +12,10 @@ async function manualUpdate(options = {}) {
         console.log('Fresh market data:', marketData);
 
         // Initialize and get current data for comparison
-        const db = new MarketDatabase();
-        await db.initialize();
+        const storage = new DataStorage();
+        await storage.initialize();
         
-        const latestScore = db.getLatestScore();
+        const latestScore = await storage.getLatest();
         console.log('Current index:', latestScore);
 
         // Calculate new score
@@ -28,8 +28,13 @@ async function manualUpdate(options = {}) {
 
         // Always save unless explicitly told not to
         if (options.test !== true) {
-            await db.storeIndexData(result);
-            console.log('Index updated in database:', result);
+            await storage.storeIndexData(result);
+            const latest = await storage.getLatest();
+            console.log('Index updated in storage:', {
+                score: result.score,
+                label: latest.label,
+                components: result.components
+            });
         }
 
         return result;

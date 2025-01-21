@@ -1,59 +1,83 @@
 {
-  "current": 15.618920722061421,
-  "lastUpdated": "16/01/2025 06:10:49 UTC",
+  "current": 60.551429999999996,
   "components": {
-    "market": {
-      "volume": 5.082302883926068,
-      "price": 3.9809194481561674,
-      "market_cap": 4.319128098101195,
-      "spread": 2.236570291877992,
-      "total": 15.618920722061421
-    },
-    "sentiment": {
-      "total": 0
-    },
-    "onchain": {
-      "total": 0
-    }
+    "market": 76.378575,
+    "social": 50,
+    "onChain": 50
   },
+  "lastUpdated": "2025-01-21T20:37:14.647Z",
   "history": [
     {
-      "timestamp": "16/01/2025 06:02:38 UTC",
-      "score": 15.078281261426458,
+      "score": 62.376545,
       "components": {
-        "market": {
-          "volume": 5.015954217434981,
-          "price": 3.682829615192736,
-          "market_cap": 4.157545014652161,
-          "spread": 2.22195241414658,
-          "total": 15.078281261426458
-        },
-        "sentiment": {
-          "total": 0
-        },
-        "onchain": {
-          "total": 0
-        }
-      }
+        "market": 80.9413625,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T19:15:39.503Z"
     },
     {
-      "timestamp": "16/01/2025 06:10:49 UTC",
-      "score": 15.618920722061421,
+      "score": 61.8272575,
       "components": {
-        "market": {
-          "volume": 5.082302883926068,
-          "price": 3.9809194481561674,
-          "market_cap": 4.319128098101195,
-          "spread": 2.236570291877992,
-          "total": 15.618920722061421
-        },
-        "sentiment": {
-          "total": 0
-        },
-        "onchain": {
-          "total": 0
-        }
-      }
+        "market": 79.56814375,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T19:24:30.670Z"
+    },
+    {
+      "score": 60.87023,
+      "components": {
+        "market": 77.175575,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T19:47:28.592Z"
+    },
+    {
+      "score": 61.2196,
+      "components": {
+        "market": 78.049,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T19:53:23.971Z"
+    },
+    {
+      "score": 61.17790500000001,
+      "components": {
+        "market": 77.94476250000001,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T20:01:44.699Z"
+    },
+    {
+      "score": 60.9763625,
+      "components": {
+        "market": 77.44090625,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T20:22:50.695Z"
+    },
+    {
+      "score": 100,
+      "components": {
+        "market": 77.928775,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T20:29:15.732Z"
+    },
+    {
+      "score": 61.0946125,
+      "components": {
+        "market": 31.094612499999997,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T20:31:26.512Z"
     }
   ]
 }

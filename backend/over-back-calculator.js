@@ -4,7 +4,7 @@ class OverBackCalculator {
     // Core weights for final index
     static WEIGHTS = {
         MARKET_DATA: 40,      // Market influence (40% total)
-        SOCIAL_SENTIMENT: 30,  // Social sentiment (30%)
+        SOCIAL_SENTIMENT: 30,  // Social social (30%)
         ON_CHAIN: 30          // On-chain metrics (30%)
     };
 
@@ -30,12 +30,12 @@ class OverBackCalculator {
     }
 
     async calculateIndex(marketMetrics, socialMetrics = {}, onChainMetrics = {}) {
-        // Calculate individual components
+        // Calculate individual components (each 0-100)
         const marketScore = this.calculateMarketScore(marketMetrics);
         const socialScore = this.calculateSocialScore(socialMetrics);
         const onChainScore = await this.calculateOnChainScore(onChainMetrics);  // Wait for async
 
-        // Combine scores using weights
+        // Apply weights to each component
         const score = (
             marketScore * (this.constructor.WEIGHTS.MARKET_DATA / 100) +
             socialScore * (this.constructor.WEIGHTS.SOCIAL_SENTIMENT / 100) +
@@ -44,11 +44,10 @@ class OverBackCalculator {
 
         return {
             score: Math.max(0, Math.min(100, score)),  // Clamp between 0-100
-            label: this.getIndexLabel(score),
             components: {
-                market: marketScore,
+                market: marketScore,  // Store the full 0-100 score
                 social: socialScore,
-                onChain: onChainScore  // Now resolved
+                onChain: onChainScore
             }
         };
     }
@@ -65,10 +64,10 @@ class OverBackCalculator {
             mcap: mcapScore
         });
 
-        // Apply weights within the market component (should total to 40)
-        const volumeComponent = volumeScore * (this.constructor.MARKET_WEIGHTS.VOLUME / 40);    // 15/40
-        const priceComponent = priceScore * (this.constructor.MARKET_WEIGHTS.PRICE / 40);       // 15/40
-        const mcapComponent = mcapScore * (this.constructor.MARKET_WEIGHTS.MARKET_CAP / 40);    // 10/40
+        // Calculate weighted components within market score (should total to 100)
+        const volumeComponent = volumeScore * (this.constructor.MARKET_WEIGHTS.VOLUME / this.constructor.WEIGHTS.MARKET_DATA);    // 15/40 = 37.5%
+        const priceComponent = priceScore * (this.constructor.MARKET_WEIGHTS.PRICE / this.constructor.WEIGHTS.MARKET_DATA);       // 15/40 = 37.5%
+        const mcapComponent = mcapScore * (this.constructor.MARKET_WEIGHTS.MARKET_CAP / this.constructor.WEIGHTS.MARKET_DATA);    // 10/40 = 25%
 
         // Calculate total market score (0-100)
         const marketScore = volumeComponent + priceComponent + mcapComponent;

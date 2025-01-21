@@ -575,7 +575,7 @@ class CoinGecko {
             market_cap: solToken.market_cap,
             volume_to_market_cap: solToken.total_volume / solToken.market_cap,
             rank: solToken.market_cap_rank,
-            sentiment: solToken.price_change_percentage_24h > 0 ? 'bullish' : 'bearish'
+            social: solToken.price_change_percentage_24h > 0 ? 'bullish' : 'bearish'
         };
     }
 

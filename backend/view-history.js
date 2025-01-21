@@ -22,7 +22,7 @@ async function viewHistory(days = 7) {
             console.log(`Total Score: ${entry.score.toFixed(2)}`);
             console.log('Components:');
             console.log(`  Market:    ${(components.market?.total || 0).toFixed(2)}%`);
-            console.log(`  Sentiment: ${(components.sentiment?.total || 0).toFixed(2)}%`);
+            console.log(`  Sentiment: ${(components.social?.total || 0).toFixed(2)}%`);
             console.log(`  On-Chain:  ${(components.onchain?.total || 0).toFixed(2)}%`);
             console.log('-------------------');
         });

@@ -106,8 +106,8 @@ function createEmptyMetrics(coin) {
         coin,
         metrics: {
             tweet_count: 0,
-            average_sentiment: 0,
-            sentiment_distribution: { positive: 0, negative: 0, neutral: 0 },
+            average_social: 0,
+            social_distribution: { positive: 0, negative: 0, neutral: 0 },
             engagement: {
                 total_likes: 0,
                 total_retweets: 0,
@@ -123,18 +123,18 @@ function analyzeTweets(tweets, coin) {
     let totalLikes = 0;
     let totalRetweets = 0;
     let totalReplies = 0;
-    let sentimentCounts = { positive: 0, negative: 0, neutral: 0 };
+    let socialCounts = { positive: 0, negative: 0, neutral: 0 };
 
     tweets.forEach(tweet => {
         // Sentiment analysis
         const words = tokenizer.tokenize(tweet.text);
-        const sentiment = analyzer.getSentiment(words);
-        totalSentiment += sentiment;
+        const social = analyzer.getSentiment(words);
+        totalSentiment += social;
 
-        // Categorize sentiment
-        if (sentiment > 0) sentimentCounts.positive++;
-        else if (sentiment < 0) sentimentCounts.negative++;
-        else sentimentCounts.neutral++;
+        // Categorize social
+        if (social > 0) socialCounts.positive++;
+        else if (social < 0) socialCounts.negative++;
+        else socialCounts.neutral++;
 
         // Engagement metrics
         const metrics = tweet.public_metrics;
@@ -147,11 +147,11 @@ function analyzeTweets(tweets, coin) {
         coin,
         metrics: {
             tweet_count: tweets.length,
-            average_sentiment: tweets.length > 0 ? totalSentiment / tweets.length : 0,
-            sentiment_distribution: {
-                positive: (sentimentCounts.positive / tweets.length) * 100,
-                negative: (sentimentCounts.negative / tweets.length) * 100,
-                neutral: (sentimentCounts.neutral / tweets.length) * 100
+            average_social: tweets.length > 0 ? totalSentiment / tweets.length : 0,
+            social_distribution: {
+                positive: (socialCounts.positive / tweets.length) * 100,
+                negative: (socialCounts.negative / tweets.length) * 100,
+                neutral: (socialCounts.neutral / tweets.length) * 100
             },
             engagement: {
                 total_likes: totalLikes,
@@ -214,7 +214,7 @@ async function fetchAllMemecoinSentiment() {
             }
         };
     } catch (error) {
-        console.error('Error fetching memecoin sentiment:', error);
+        console.error('Error fetching memecoin social:', error);
         throw error;
     }
 }
@@ -222,11 +222,11 @@ async function fetchAllMemecoinSentiment() {
 function calculateOverallMetrics(results) {
     const totalTweets = results.reduce((sum, result) => sum + result.metrics.tweet_count, 0);
     const weightedSentiment = results.reduce((sum, result) => 
-        sum + (result.metrics.average_sentiment * result.metrics.tweet_count), 0) / totalTweets;
+        sum + (result.metrics.average_social * result.metrics.tweet_count), 0) / totalTweets;
 
     return {
         total_tweets: totalTweets,
-        average_sentiment: weightedSentiment,
+        average_social: weightedSentiment,
         total_engagement: results.reduce((sum, result) => 
             sum + result.metrics.engagement.total_likes + 
             result.metrics.engagement.total_retweets + 

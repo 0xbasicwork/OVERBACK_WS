@@ -6,7 +6,7 @@
       "label": "We vibing.",
       "components": {
         "market": 59.529999999999994,
-        "sentiment": 54.50000000000001,
+        "social": 54.50000000000001,
         "onChain": 45.665666666666674
       },
       "details": {
@@ -15,8 +15,8 @@
           "volumeChange": 0.655,
           "marketCapChange": 0.556
         },
-        "sentimentMetrics": {
-          "sentimentScore": 0.5499999999999999,
+        "socialMetrics": {
+          "socialScore": 0.5499999999999999,
           "engagementScore": 0.5,
           "volumeScore": 0.5833333333333334
         },
@@ -33,7 +33,7 @@
       "label": "We're back.",
       "components": {
         "market": 65.73899888888889,
-        "sentiment": 54.50000000000001,
+        "social": 54.50000000000001,
         "onChain": 87.67
       },
       "details": {
@@ -42,8 +42,8 @@
           "volumeChange": 1,
           "marketCapChange": 0.5062088888888889
         },
-        "sentimentMetrics": {
-          "sentimentScore": 0.5499999999999999,
+        "socialMetrics": {
+          "socialScore": 0.5499999999999999,
           "engagementScore": 0.5,
           "volumeScore": 0.5833333333333334
         },
