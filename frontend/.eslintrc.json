@@ -1,12 +1,6 @@
 ﻿{
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "extends": "next/core-web-vitals",
   "rules": {
-    "quotes": ["error", "single"],
-    "@typescript-eslint/quotes": "off"
+    "quotes": ["error", "single"]
   }
 }

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
       {/* Background Video */}
@@ -55,4 +55,6 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
 

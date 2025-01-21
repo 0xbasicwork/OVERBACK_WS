@@ -36,16 +36,35 @@ export function OverBackIndex() {
           throw new Error(`Failed to fetch index: ${response.status} - ${errorData}`);
         }
         
-        const data = await response.json();
+        const rawData = await response.json();
+        console.log('Raw API response:', rawData); // Debug log
         
-        // Validate data shape
-        if (!data || typeof data.score !== 'number' || !data.components) {
-          throw new Error('Invalid data format');
+        // Transform the data to match expected format
+        const transformedData: IndexData = {
+          score: rawData.score,
+          components: {
+            market: rawData.components.market || 0,
+            social: rawData.components.social || 0,
+            onChain: rawData.components.onChain || 0
+          },
+          timestamp: rawData.timestamp,
+          lastUpdated: rawData.timestamp
+        };
+        
+        // More detailed validation
+        if (!transformedData.score || typeof transformedData.score !== 'number') {
+          throw new Error('Invalid score format');
+        }
+        if (!transformedData.components || 
+            typeof transformedData.components.market !== 'number' ||
+            typeof transformedData.components.social !== 'number' ||
+            typeof transformedData.components.onChain !== 'number') {
+          throw new Error('Invalid components format');
         }
         
-        console.log('Index data:', data);
-        setData(data as IndexData);
-        setBgColor(getColorForStatus(data.score));
+        console.log('Transformed data:', transformedData);
+        setData(transformedData);
+        setBgColor(getColorForStatus(transformedData.score));
       } catch (err: unknown) {
         console.error('Error fetching index:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch data');
@@ -71,7 +90,7 @@ export function OverBackIndex() {
         console.log('Raw historical data:', data);
         
         if (data.month && Array.isArray(data.month)) {
-          const formattedData = data.month.map((point: HistoricalDataPoint) => ({
+          const formattedData = data.month.map((point: { score: number; timestamp: string }) => ({
             score: point.score,
             timestamp: point.timestamp
           }));

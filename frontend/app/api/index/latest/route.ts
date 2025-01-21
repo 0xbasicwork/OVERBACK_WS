@@ -7,7 +7,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://45.76.10.9:3001';
 const mockData = {
     timestamp: new Date().toISOString(),
     index: 50,
-    trend: "neutral",
+    trend: 'neutral',
     components: {
         price: 50,
         volume: 50,
