@@ -61,10 +61,10 @@ class CoinGecko {
     constructor() {
         this.debug = process.env.DEBUG_MODE === 'true';
         this.apiKey = process.env.COINGECKO_API_KEY;
-        this.baseUrl = 'https://pro-api.coingecko.com/api/v3';
+        this.baseUrl = 'https://api.coingecko.com/api/v3';
         this.validTokenIds = this.getValidTokenIds();
-        this.rateLimit = new RateLimit(500, 60000);
-        this.creditTracker = new CreditTracker(500000);
+        this.rateLimit = new RateLimit(30, 60000);
+        this.creditTracker = new CreditTracker(10000);
         this.dataDir = path.join(__dirname, 'data');
         this.rankingsFile = path.join(this.dataDir, 'rankings.json');
         this.historicalFile = path.join(this.dataDir, 'historical.json');
@@ -132,12 +132,12 @@ class CoinGecko {
         try {
             await this.initialize();
             await this.rateLimit.waitIfNeeded();
-            await this.creditTracker.trackRequest(10);
+            await this.creditTracker.trackRequest(1);
 
             const response = await axios.get(`${this.baseUrl}/coins/markets`, {
                 params: {
                     vs_currency: 'usd',
-                    ids: this.validTokenIds.join(','),  // Use configured token IDs
+                    ids: this.validTokenIds.join(','),
                     order: 'market_cap_desc',
                     per_page: 20,
                     page: 1,
@@ -146,10 +146,8 @@ class CoinGecko {
                     include_market_cap: true,
                     include_24hr_vol: true,
                     include_24hr_change: true,
-                    include_24h_vol: true,
-                    x_cg_pro_api_key: this.apiKey
-                },
-                headers: { 'x-cg-pro-api-key': this.apiKey }
+                    include_24h_vol: true
+                }
             });
 
             const marketData = response.data[0] || {};
@@ -219,10 +217,8 @@ class CoinGecko {
                 include_market_cap: true,
                 include_24hr_vol: true,
                 include_24hr_change: true,
-                include_last_updated_at: true,
-                x_cg_pro_api_key: this.apiKey
-            },
-            headers: { 'x-cg-pro-api-key': this.apiKey }
+                include_last_updated_at: true
+            }
         });
         
         return response.data || [];
@@ -234,10 +230,8 @@ class CoinGecko {
                 vs_currency: 'usd',
                 order: 'volume_desc',
                 per_page: 100,
-                sparkline: false,
-                x_cg_pro_api_key: this.apiKey
-            },
-            headers: { 'x-cg-pro-api-key': this.apiKey }
+                sparkline: false
+            }
         });
         return response.data || [];
     }
@@ -245,10 +239,8 @@ class CoinGecko {
     async fetchNewListings() {
         const response = await axios.get(`${this.baseUrl}/coins/list`, {
             params: {
-                include_platform: false,
-                x_cg_pro_api_key: this.apiKey
-            },
-            headers: { 'x-cg-pro-api-key': this.apiKey }
+                include_platform: false
+            }
         });
         return response.data || [];
     }

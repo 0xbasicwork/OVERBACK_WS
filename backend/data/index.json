@@ -1,11 +1,11 @@
 {
-  "current": 60.551429999999996,
+  "current": 46.94796,
   "components": {
-    "market": 76.378575,
+    "market": 42.3699,
     "social": 50,
     "onChain": 50
   },
-  "lastUpdated": "2025-01-21T20:37:14.647Z",
+  "lastUpdated": "2025-01-28T04:37:36.727Z",
   "history": [
     {
       "score": 62.376545,
@@ -78,6 +78,42 @@
         "onChain": 50
       },
       "timestamp": "2025-01-21T20:31:26.512Z"
+    },
+    {
+      "score": 60.551429999999996,
+      "components": {
+        "market": 76.378575,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-21T20:37:14.647Z"
+    },
+    {
+      "score": 50,
+      "components": {
+        "market": 50,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-28T04:21:29.549Z"
+    },
+    {
+      "score": 50,
+      "components": {
+        "market": 50,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-28T04:31:04.995Z"
+    },
+    {
+      "score": 50,
+      "components": {
+        "market": 50,
+        "social": 50,
+        "onChain": 50
+      },
+      "timestamp": "2025-01-28T04:33:28.363Z"
     }
   ]
 }
